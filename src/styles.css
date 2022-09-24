@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+.W100 {
+    width: 60%;
+    background-color: white;
+    height: 24px;
+margin-left: 20%;
+}
+
+body {
+    /* background-image: url(./assets/Images/dark-mountain.jfif); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    /* background-color: rgb(226, 227, 228); */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

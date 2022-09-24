@@ -1,0 +1,30 @@
+.card {
+    background-color: cornflowerblue;
+    top: 2%;
+    height: 375px;
+}
+
+.clr {
+    color: black;
+    margin-left: 20%;
+}
+
+.alertclr {
+    color: red;
+    margin-left: 10%;
+}
+
+.btnwdt {
+    width: 60%;
+    margin-left: 20%;
+}
+.button {
+    width: 60%;
+    margin-left: 45%;
+    background-color:blueviolet;
+}
+
+.clrbtn {
+    color: black;
+    margin-left: 20%;
+}

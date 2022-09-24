@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="row mt-1">
+                    <div class="col-md-8"></div>
+                    <div class="text-center">
+                        <h2>Skill Registry</h2>
+                    </div>
+                </div>
+                <form [formGroup]="registerForm">
+                    <div class="row ml-4 mr-4">
+                        <div class="col-md-6">
+                            <label class="clr">Emp No</label>
+                            <br />
+                            <input class="btnwdt" type="text" formControlName="uid" readonly />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="clr">Emp Name</label>
+                            <br />
+                            <input class="btnwdt" type="text" formControlName="name" />
+                            <div class="alertclr"
+                                *ngIf="registerForm.get('name')?.invalid &&(registerForm.get('name')?.touched || registerForm.get('name')?.dirty)">
+                                <div class="alertclr"
+                                    *ngIf="registerForm.get('name')?.errors?. ['minlength'] || registerForm.get('name')?.errors?. ['maxlength']">
+                                    Name should have 3 to 50 characters
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ml-4 mr-4">
+                        <div class="col-md-6">
+                            <label class="clr">Emp Designation</label><br />
+                            <input class="btnwdt" type="text" formControlName="designation" />
+                            <div class="alertclr"
+                                *ngIf="registerForm.get('designation')?.invalid &&(registerForm.get('designation')?.touched || registerForm.get('designation')?.dirty)">
+                                <div class="alertclr"
+                                    *ngIf="registerForm.get('designation')?.errors?. ['minlength'] || registerForm.get('designation')?.errors?. ['maxlength']">
+                                    Designation should have 3 to 20 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="clr">Total yrs of experience</label><br />
+                            <!-- required dropdown-->
+
+                            <mat-select style="width: 60%; background-color: white; height: 24px; margin-left: 20%;"
+                                formControlName="yearsExper">
+                                <mat-option *ngFor="let year of experience" [value]="year.id">{{year.exp}} </mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <div class="row m1-4 mr-4">
+                        <div class="col-md-6">
+                            <label class="clr">Skill known</label><br />
+                            <!-- required listbox-->
+
+                            <mat-select style="width: 60%; background-color: white; height: 24px; margin-left: 20%;"
+                                formControlName="skills" [formControl]="platforms" multiple>
+                                <mat-option *ngFor=" let platform of platformLang" [value]="platform">{{platform}}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="clr">Gender</label><br />
+                            <label class="clrbtn mr-4"><input value="male" type="radio" formControlName="gender" />
+                                Male</label>
+                            <label class="clrbtn"><input value="female" type="radio" formControlName="gender" />
+                                Female</label>
+                        </div>
+                    </div>
+                    <div class="row m1-4 mr-4">
+                        <div class="col-md-6">
+                            <label class="clr">Mobile number</label><br />
+                            <input class="btnwdt" type="number" formControlName="mobileNumber" />
+                            <div class="alertclr"
+                                *ngIf="registerForm.get('mobileNumber')?.invalid &&(registerForm.get('mobileNumber')?.touched || registerForm.get('mobileNumber')?.dirty)">
+                                <div class="alertclr"
+                                    *ngIf="registerForm.get('mobileNumber' )?.errors?.['minlength'] || registerForm.get('mobileNumber' )?.errors?.['maxlength']">
+                                    Mobile number should have 10 digits
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="clr">Email</label><br />
+                            <input class="btnwdt" type="text" formControlName="email" />
+                            <div class="alertclr"
+                                *ngIf="registerForm.get('email')?.invalid &&(registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+                                <div class="alertclr" *ngIf="registerForm.get('email' )?.errors?.['minlength']">
+                                    Invalid Email
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-mb-4">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <button class="button mt-4" (click)="postDataDetails()">Submit</button>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
